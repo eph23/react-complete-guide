@@ -1,6 +1,6 @@
-function Section({ title, children }) {
+function Section({ title, children, ...props }) {
     return (
-        <section>
+        <section {...props}>
             <h2>{title}</h2>
             {children}
         </section>
