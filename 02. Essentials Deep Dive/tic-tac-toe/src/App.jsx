@@ -1,10 +1,11 @@
-import Player from "./Player";
-import GameBoard from "./GameBoard";
-import Log from "./Log";
 import { useState } from "react";
 
+import Player from "./Player.jsx";
+import GameBoard from "./GameBoard.jsx";
+import Log from "./Log.jsx";
+
 function App() {
-    const [gameTurns, setGameTurns] = useState();
+    const [gameTurns, setGameTurns] = useState([]);
     const [activePlayer, setActivePlayer] = useState("X");
 
     function handleSelectSquare(rowIndex, colIndex) {
@@ -33,7 +34,7 @@ function App() {
     return (
         <main>
             <div id="game-container">
-                <ol id="players" class="highlight-player">
+                <ol id="players" className="highlight-player">
                     <Player
                         initialName="Player 1"
                         symbol="X"
@@ -45,10 +46,9 @@ function App() {
                         isActive={activePlayer === "O"}
                     />
                 </ol>
-
                 <GameBoard
                     onSelectSquare={handleSelectSquare}
-                    activePlayerSymbol={activePlayer}
+                    turns={gameTurns}
                 />
             </div>
             <Log />
