@@ -3,6 +3,8 @@ import { useState } from "react";
 import Player from "./Player.jsx";
 import GameBoard from "./GameBoard.jsx";
 import Log from "./Log.jsx";
+import { WINNING_COMBINATIONS } from "./winning-combinations.js";
+
 
 function derivedActivePlayer(gameTurns) {
     let currentPlayer = "X";
@@ -25,7 +27,7 @@ function App() {
         // );
         setGameTurns((prevTurns) => {
             const currentPlayer = derivedActivePlayer(prevTurns);
-            
+
             const updatedTurns = [
                 {
                     square: { row: rowIndex, col: colIndex },
