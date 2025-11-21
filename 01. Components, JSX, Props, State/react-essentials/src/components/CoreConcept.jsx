@@ -1,5 +1,3 @@
-
-
 function CoreConcept({ title, description, image }) {
     return (
         <li>
