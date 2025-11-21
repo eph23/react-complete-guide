@@ -1,7 +1,11 @@
 function TabButton({ children }) {
+    function handleClick() {
+        console.log("CLICKED");
+    }
+
     return (
         <li>
-            <button>{children}</button>
+            <button onClick={handleClick}>{children}</button>
         </li>
     );
 }
