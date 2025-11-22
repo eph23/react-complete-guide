@@ -1,5 +1,5 @@
 function TabButton({ children, onSelect }) {
-    
+    console.log("TABBUTTON");
 
     return (
         <li>

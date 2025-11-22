@@ -5,9 +5,14 @@ import CoreConcept from "./components/CoreConcept.jsx";
 import TabButton from "./components/TabButton.jsx";
 
 function App() {
+    let tabContent = "Please click a button";
+
     function handleSelect(selectedButton) {
-        console.log(selectedButton);
+        tabContent = selectedButton;
+        console.log(tabContent);
     }
+
+    console.log("APP COMPONENT");
 
     return (
         <div>
@@ -42,7 +47,7 @@ function App() {
                             States
                         </TabButton>
                     </menu>
-                    Dynamic Content
+                    {tabContent}
                 </section>
             </main>
         </div>
