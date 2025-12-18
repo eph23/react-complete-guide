@@ -65,7 +65,7 @@ function App() {
                 (place) => place.id !== selectedPlace.current
             )
         );
-        setModalIsOpen(false);
+        // setModalIsOpen(false);
 
         const storedIds =
             JSON.parse(localStorage.getItem("selectedPlaces")) || [];
