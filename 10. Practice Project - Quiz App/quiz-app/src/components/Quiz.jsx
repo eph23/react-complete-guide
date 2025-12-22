@@ -24,7 +24,7 @@ function Quiz() {
     if (quizIsComplete) {
         return (
             <div id="summary">
-                <img src="quizCompleteImg" alt="Trophy Image" />
+                <img src={quizCompleteImg} alt="Trophy Image" />
                 <h2>Quiz Completed!</h2>
             </div>
         );
