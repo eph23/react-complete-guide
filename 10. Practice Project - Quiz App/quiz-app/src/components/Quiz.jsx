@@ -5,36 +5,19 @@ import QUESTIONS from "../questions";
 import Question from "./Question";
 
 function Quiz() {
-    const [answerState, setAnswerState] = useState("");
     const [userAnswers, setUserAnswers] = useState([]);
 
-    const activeQuestionIndex =
-        answerState === "" ? userAnswers.length : userAnswers.length - 1;
+    const activeQuestionIndex = userAnswers.length;
     const quizIsComplete = activeQuestionIndex === QUESTIONS.length;
 
-    const handleSelectAnswer = useCallback(
-        function handleSelectAnswer(selectedAnser) {
-            setAnswerState("answered");
-            setUserAnswers((prevUserAnswers) => {
-                return [...prevUserAnswers, selectedAnser];
-            });
-
-            setTimeout(() => {
-                if (
-                    selectedAnser === QUESTIONS[activeQuestionIndex].answers[0]
-                ) {
-                    setAnswerState("correct");
-                } else {
-                    setAnswerState("wrong");
-                }
-
-                setTimeout(() => {
-                    setAnswerState("");
-                }, 2000);
-            }, 1000);
-        },
-        [activeQuestionIndex]
-    );
+    const handleSelectAnswer = useCallback(function handleSelectAnswer(
+        selectedAnser
+    ) {
+        setUserAnswers((prevUserAnswers) => {
+            return [...prevUserAnswers, selectedAnser];
+        });
+    },
+    []);
 
     const handleSkipAnswer = useCallback(() => handleSelectAnswer(null), []);
 
@@ -52,10 +35,7 @@ function Quiz() {
             <div id="question">
                 <Question
                     key={activeQuestionIndex}
-                    questionText={QUESTIONS[activeQuestionIndex].text}
-                    answers={QUESTIONS[activeQuestionIndex].answers}
-                    answerState={answerState}
-                    selectedAnswer={userAnswers[userAnswers.length - 1]}
+                    index={activeQuestionIndex}
                     onSelectAnswer={handleSelectAnswer}
                     onSkipAnswer={handleSkipAnswer}
                 />
