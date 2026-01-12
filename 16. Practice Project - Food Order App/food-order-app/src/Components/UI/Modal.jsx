@@ -1,13 +1,17 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 
-function Modal({ children, open, className = "" }) {
+export default function Modal({ children, open, className = "" }) {
     const dialog = useRef();
 
     useEffect(() => {
+        const modal = dialog.current;
+
         if (open) {
-            dialog.current.showModal();
+            modal.showModal();
         }
+
+        return () => modal.close();
     }, [open]);
 
     return createPortal(
@@ -17,5 +21,3 @@ function Modal({ children, open, className = "" }) {
         document.getElementById("modal")
     );
 }
-
-export default Modal;
