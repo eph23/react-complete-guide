@@ -1,13 +1,13 @@
 import { useContext } from "react";
 
-import Modal from "./UI/Modal";
-import CartContext from "../store/CartContext";
-import Button from "./UI/Button";
-import { currencyFormatter } from "../util/formatting";
-import { UserProgressContext } from "../store/UserProgressContext";
-import CartItem from "./CartItem";
+import Modal from "./UI/Modal.jsx";
+import CartContext from "../store/CartContext.jsx";
+import Button from "./UI/Button.jsx";
+import { currencyFormatter } from "../util/formatting.js";
+import UserProgressContext from "../store/UserProgressContext.jsx";
+import CartItem from "./CartItem.jsx";
 
-function Cart() {
+export default function Cart() {
     const cartCtx = useContext(CartContext);
     const userProgressCtx = useContext(UserProgressContext);
 
@@ -19,6 +19,7 @@ function Cart() {
     function handleCloseCart() {
         userProgressCtx.hideCart();
     }
+
     function handleGoToCheckout() {
         userProgressCtx.showCheckout();
     }
@@ -56,5 +57,3 @@ function Cart() {
         </Modal>
     );
 }
-
-export default Cart;

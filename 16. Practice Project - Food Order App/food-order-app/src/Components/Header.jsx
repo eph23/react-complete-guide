@@ -1,11 +1,11 @@
 import { useContext } from "react";
 
+import Button from "./UI/Button.jsx";
 import logoImg from "../assets/logo.jpg";
-import Button from "./UI/Button";
-import CartContext from "../store/CartContext";
-import { UserProgressContext } from "../store/UserProgressContext";
+import CartContext from "../store/CartContext.jsx";
+import UserProgressContext from "../store/UserProgressContext.jsx";
 
-function Header() {
+export default function Header() {
     const cartCtx = useContext(CartContext);
     const userProgressCtx = useContext(UserProgressContext);
 
@@ -20,8 +20,8 @@ function Header() {
     return (
         <header id="main-header">
             <div id="title">
-                <img src={logoImg} alt="Logo" />
-                <h1>Food Delivery</h1>
+                <img src={logoImg} alt="A restaurant" />
+                <h1>ReactFood</h1>
             </div>
             <nav>
                 <Button textOnly onClick={handleShowCart}>
@@ -31,5 +31,3 @@ function Header() {
         </header>
     );
 }
-
-export default Header;
